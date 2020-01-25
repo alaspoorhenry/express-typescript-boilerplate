@@ -3,14 +3,14 @@ import { Router } from "express";
 
 import bodyParser from "body-parser";
 
+const bodyParserMiddleware = bodyParser.json({
+  limit: "50mb"
+});
+
 const defaultGetRoute = Router();
 
 defaultGetRoute.get("*", (_req, res) => {
   res.send("Server up and running!");
-});
-
-const bodyParserMiddleware = bodyParser.json({
-  limit: "50mb"
 });
 
 const server = new Server({
